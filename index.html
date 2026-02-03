@@ -590,18 +590,30 @@
 
 ```javascript
 <script>
-  const btn = document.getElementById('mobile-menu-button');
-  const menu = document.getElementById('mobile-menu');
-  const links = document.querySelectorAll('.mobile-nav-link');
+  // 1. Select the elements
+  const menuBtn = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks = document.querySelectorAll('.mobile-nav-link');
 
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
+  // 2. Add the click event to the button
+  menuBtn.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.toggle('hidden');
+    
+    // Optional: This stops the background page from scrolling 
+    // when the menu is open so the user doesn't get lost.
+    if (!isHidden) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   });
 
-  // Close menu when a link is clicked
-  links.forEach(link => {
+  // 3. Close the menu automatically when a user clicks a link
+  // (Otherwise the menu stays open even after you jump to a section)
+  navLinks.forEach(link => {
     link.addEventListener('click', () => {
-      menu.classList.add('hidden');
+      mobileMenu.classList.add('hidden');
+      document.body.style.overflow = '';
     });
   });
 </script>
