@@ -203,5 +203,33 @@
       </div>
     </footer>
     <script type="module" src="/main.js"></script>
+    <script>
+  // 1. Select the elements
+  const menuBtn = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+  // 2. Add the click event to the button
+  menuBtn.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.toggle('hidden');
+    
+    // Optional: This stops the background page from scrolling 
+    // when the menu is open so the user doesn't get lost.
+    if (!isHidden) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+
+  // 3. Close the menu automatically when a user clicks a link
+  // (Otherwise the menu stays open even after you jump to a section)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
   </body>
 </html>
