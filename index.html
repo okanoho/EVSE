@@ -96,27 +96,6 @@
   </div>
 </nav> ```
 
-### 3. Add the functionality
-Since the code you pasted doesn't have the "logic" to open the menu, make sure this script is at the very bottom of your `index.html` (right before `</body>`):
-
-```javascript
-<script>
-  const btn = document.getElementById('mobile-menu-button');
-  const menu = document.getElementById('mobile-menu');
-  const links = document.querySelectorAll('.mobile-nav-link');
-
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
-
-  // Close menu when a link is clicked
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.add('hidden');
-    });
-  });
-</script>
-
     <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-16">
       <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://images.pexels.com/photos/110844/pexels-photo-110844.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
@@ -608,5 +587,23 @@ Since the code you pasted doesn't have the "logic" to open the menu, make sure t
     </footer>
 
     <script type="module" src="/main.js"></script>
+
+```javascript
+<script>
+  const btn = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  const links = document.querySelectorAll('.mobile-nav-link');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+
+  // Close menu when a link is clicked
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+    });
+  });
+</script>
   </body>
 </html>
