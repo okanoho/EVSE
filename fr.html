@@ -1,258 +1,530 @@
 <!doctype html>
 <html lang="fr" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EVSE Canada - Propulser l'avenir électrique du Canada</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'electric-blue': '#0066FF',
-              'electric-blue-dark': '#0052CC',
-              'canadian-red': '#FF0000',
-            }
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVSE Canada - Propulser l'avenir électrique du Canada</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'electric-blue': '#0066FF',
+            'electric-blue-dark': '#0052CC',
+            'canadian-red': '#FF0000',
           }
         }
       }
-    </script>
+    }
+  </script>
 </head>
-  <body class="font-sans antialiased">
-   <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-all duration-300">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-          <div class="flex items-center h-full">
-            <a href="index.html" class="flex items-center h-full">
-              <img src="public/image.png" alt="EVSE Canada" class="h-full w-auto transition-transform duration-300 hover:scale-105" />
-            </a>
-          </div>
+<body class="font-sans antialiased">
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center h-full">
+          <a href="index.html" class="flex items-center h-full">
+            <img src="public/image.png" alt="EVSE Canada" class="h-full w-auto transition-transform duration-300 hover:scale-105" />
+          </a>
+        </div>
 
-          <div class="hidden md:flex items-center space-x-8">
-            <div class="flex space-x-6 whitespace-nowrap">
-                <a href="#hero" class="nav-link text-slate-700 hover:text-electric-blue transition-colors font-medium">Accueil</a>
-                <a href="#services" class="nav-link text-slate-700 hover:text-electric-blue transition-colors font-medium">Services</a>
-                <a href="#why-choose-us" class="nav-link text-slate-700 hover:text-electric-blue transition-colors font-medium">Pourquoi Nous</a>
-                <a href="#leadership" class="nav-link text-slate-700 hover:text-electric-blue transition-colors font-medium">Équipe</a>
-                <a href="#process" class="nav-link text-slate-700 hover:text-electric-blue transition-colors font-medium">Processus</a>
-                <a href="#contact" class="nav-link text-slate-700 hover:text-electric-blue transition-colors font-medium">Contact</a>
-            </div>
-            <div class="flex items-center space-x-3 border-l border-slate-300 pl-6">
-                <a href="index.html" class="text-slate-500 hover:text-electric-blue font-medium transition-colors">EN</a>
-                <span class="text-slate-300">|</span>
-                <span class="text-electric-blue font-bold cursor-default">FR</span>
-                <span class="text-slate-300">|</span>
-                <a href="cn.html" class="text-slate-500 hover:text-electric-blue font-medium transition-colors">中文</a>
-            </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <div class="flex space-x-6">
+            <a href="#hero" class="nav-link text-slate-700 hover:text-electric-blue transition-colors font-medium">Accueil</a>
+            <a href="#services" class="nav-link text-slate-700 hover:text-electric-blue transition-colors font-medium">Services</a>
+            <a href="#why-choose-us" class="nav-link text-slate-700 hover:text-electric-blue transition-colors font-medium">Pourquoi Nous</a>
+            <a href="#leadership" class="nav-link text-slate-700 hover:text-electric-blue transition-colors font-medium">Équipe</a>
+            <a href="#process" class="nav-link text-slate-700 hover:text-electric-blue transition-colors font-medium">Processus</a>
+            <a href="#contact" class="nav-link text-slate-700 hover:text-electric-blue transition-colors font-medium">Contact</a>
           </div>
-
-          <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-slate-700 hover:text-electric-blue focus:outline-none">
-              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
+          <div class="flex items-center space-x-3 border-l border-slate-300 pl-6">
+            <a href="index.html" class="text-slate-500 hover:text-electric-blue font-medium transition-colors">EN</a>
+            <span class="text-slate-300">|</span>
+            <span class="text-electric-blue font-bold cursor-default">FR</span>
+            <span class="text-slate-300">|</span>
+            <a href="cn.html" class="text-slate-500 hover:text-electric-blue font-medium transition-colors">中文</a>
           </div>
         </div>
-      </div>
-      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
-        <div class="px-2 pt-2 pb-3 space-y-1">
-          <a href="#hero" class="mobile-nav-link block px-3 py-2 text-slate-700 hover:bg-slate-100 hover:text-electric-blue rounded-md font-medium">Accueil</a>
-          <a href="#services" class="mobile-nav-link block px-3 py-2 text-slate-700 hover:bg-slate-100 hover:text-electric-blue rounded-md font-medium">Services</a>
-          <a href="#contact" class="mobile-nav-link block px-3 py-2 text-slate-700 hover:bg-slate-100 hover:text-electric-blue rounded-md font-medium">Contact</a>
-          <div class="flex items-center space-x-4 px-3 py-4 border-t border-slate-100 mt-2">
-            <a href="index.html" class="text-slate-600 hover:text-electric-blue">English</a>
-            <span class="text-electric-blue font-bold">Français</span>
-            <a href="cn.html" class="text-slate-600 hover:text-electric-blue">中文</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-    
-    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-16">
-      <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://images.pexels.com/photos/110844/pexels-photo-110844.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-          Propulser l'avenir<br/>
-          <span class="text-electric-blue">Électrique du Canada</span>
-        </h1>
-        <p class="text-xl sm:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto">
-          Solutions d'infrastructure VÉ de bout en bout, de la chaîne d'approvisionnement à l'activation du site.
-        </p>
-        <a href="#contact" class="inline-block bg-electric-blue hover:bg-electric-blue-dark text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-          Obtenir un devis
-        </a>
-      </div>
-    </section>
 
-    <div class="relative">
-      <div class="absolute inset-0 z-0 overflow-hidden">
-        <video autoplay muted loop playsinline class="w-full h-full object-cover" style="object-position: center;">
-          <source src="public/video.mp4" type="video/mp4">
-        </video>
-        <div class="absolute inset-0 bg-black/40"></div>
-      </div>
-
-      <section id="services" class="relative z-10 py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">Nos Services</h2>
-            <div class="w-24 h-1 bg-electric-blue mx-auto mb-4"></div>
-            <p class="text-xl text-slate-200 max-w-2xl mx-auto">
-              Solutions d'infrastructure VÉ complètes adaptées au marché canadien
-            </p>
-          </div>
-        <!-- Service Card 1 -->
-        <div class="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-electric-blue">
-          <div class="w-16 h-16 bg-electric-blue rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-slate-700 hover:text-electric-blue focus:outline-none p-2">
+            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">Recharge Résidentielle et Commerciale</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Chargeurs AC et DC haute performance pour domiciles, lieux de travail et flottes publiques.
-          </p>
+          </button>
         </div>
-         <!-- Service Card 2 -->
-        <div class="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-electric-blue">
-          <div class="w-16 h-16 bg-electric-blue rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">Ingénierie et Construction</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Installation clé en main, génie civil et opérations et maintenance (O&M) du site.
-          </p>
-        </div>
-          <!-- Service Card 3 -->
-        <div class="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-electric-blue">
-          <div class="w-16 h-16 bg-electric-blue rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-slate-900 mb-4">Approvisionnement et Stockage</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Gestion de la chaîne d'approvisionnement et installation de systèmes de stockage d'énergie (ESS).
-          </p>
-        </div>
-          
-          </div>
-        </div>
-      </section>
-
-      <section id="why-choose-us" class="relative z-10 py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">Pourquoi Choisir EVSE Canada</h2>
-            <div class="w-24 h-1 bg-electric-blue mx-auto mb-4"></div>
-          </div>
-          <div class="grid md:grid-cols-3 gap-12">
-            <div class="text-center">
-              <h3 class="text-2xl font-bold text-white mb-3">Experts en Financement PIZE</h3>
-              <p class="text-slate-200">Nous aidons à naviguer les subventions fédérales et provinciales pour maximiser votre ROI.</p>
-            </div>
-            <div class="text-center">
-              <h3 class="text-2xl font-bold text-white mb-3">Certifié Sceau Rouge</h3>
-              <p class="text-slate-200">Installation entièrement licenciée répondant aux normes strictes du Code canadien de l'électricité (CSA).</p>
-            </div>
-            <div class="text-center">
-              <h3 class="text-2xl font-bold text-white mb-3">Technologie Prête pour l'Hiver</h3>
-              <p class="text-slate-200">Matériel testé pour les hivers canadiens rigoureux (fonctionnement à -40°C).</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
 
-    <section id="contact" class="py-20 bg-slate-50">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">Commencez Aujourd'hui</h2>
-          <p class="text-xl text-slate-600">Contactez-nous pour une consultation gratuite.</p>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 absolute w-full shadow-xl max-h-[80vh] overflow-y-auto">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="#hero" class="mobile-nav-link block px-3 py-4 text-slate-700 hover:bg-slate-50 border-b border-slate-100 font-medium">Accueil</a>
+        <a href="#services" class="mobile-nav-link block px-3 py-4 text-slate-700 hover:bg-slate-50 border-b border-slate-100 font-medium">Services</a>
+        <a href="#why-choose-us" class="mobile-nav-link block px-3 py-4 text-slate-700 hover:bg-slate-50 border-b border-slate-100 font-medium">Pourquoi Nous</a>
+        <a href="#leadership" class="mobile-nav-link block px-3 py-4 text-slate-700 hover:bg-slate-50 border-b border-slate-100 font-medium">Équipe</a>
+        <a href="#process" class="mobile-nav-link block px-3 py-4 text-slate-700 hover:bg-slate-50 border-b border-slate-100 font-medium">Processus</a>
+        <a href="#contact" class="mobile-nav-link block px-3 py-4 text-slate-700 hover:bg-slate-50 font-medium">Contact</a>
+        
+        <div class="flex items-center space-x-4 px-3 py-4 border-t border-slate-100 mt-2">
+          <a href="index.html" class="text-slate-600">English</a>
+          <span class="text-electric-blue font-bold">Français</span>
+          <a href="cn.html" class="text-slate-600">中文</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-16">
+    <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://images.pexels.com/photos/110844/pexels-photo-110844.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        Propulser l'avenir<br/>
+        <span class="text-electric-blue">Électrique du Canada</span>
+      </h1>
+      <p class="text-xl sm:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto">
+        Solutions d'infrastructure VÉ de bout en bout, de la chaîne d'approvisionnement à l'activation du site.
+      </p>
+      <a href="#contact" class="inline-block bg-electric-blue hover:bg-electric-blue-dark text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+        Obtenir un devis
+      </a>
+    </div>
+  </section>
+
+  <!-- Combined Video Background for Services & Why Choose Us Sections -->
+  <div class="relative">
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <video autoplay muted loop playsinline class="w-full h-full object-cover" style="object-position: center;">
+        <source src="public/video.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="relative z-10 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">Nos Services</h2>
+          <div class="w-24 h-1 bg-electric-blue mx-auto mb-4"></div>
+          <p class="text-xl text-slate-200 max-w-2xl mx-auto">
+            Solutions d'infrastructure VÉ complètes adaptées au marché canadien
+          </p>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-          <form id="contact-form" action="https://formsubmit.co/okanoho@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="Nouveau message (FR) - EVSE Canada">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://okanoho.github.io/EVSE/thankyou-fr.html">
-
-            <div class="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">Nom Complet *</label>
-                <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-electric-blue" placeholder="Jean Dupont" />
-              </div>
-              <div>
-                <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Adresse Courriel *</label>
-                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-electric-blue" placeholder="jean@exemple.com" />
-              </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Service Card 1 -->
+          <div class="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-electric-blue">
+            <div class="w-16 h-16 bg-electric-blue rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
             </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">Recharge Résidentielle et Commerciale</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Chargeurs AC et DC haute performance pour domiciles, lieux de travail et flottes publiques.
+            </p>
+          </div>
 
-            <div class="mb-6">
-              <label for="company" class="block text-sm font-semibold text-slate-700 mb-2">Entreprise (Optionnel)</label>
-              <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-electric-blue" />
+          <!-- Service Card 2 -->
+          <div class="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-electric-blue">
+            <div class="w-16 h-16 bg-electric-blue rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
             </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">Ingénierie et Construction</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Installation clé en main, génie civil et opérations et maintenance (O&M) du site.
+            </p>
+          </div>
 
-            <div class="mb-6">
-              <label for="project-type" class="block text-sm font-semibold text-slate-700 mb-2">Type de Projet *</label>
-              <select id="project-type" name="project-type" required class="w-full px-4 py-3 border border-slate-300 rounded-lg bg-white outline-none focus:ring-2 focus:ring-electric-blue">
-                <option value="">Sélectionnez un type</option>
-                <option value="home">Résidentiel</option>
-                <option value="business">Commercial</option>
-                <option value="supply-chain">Chaîne d'approvisionnement</option>
-                <option value="energy-storage">Stockage d'énergie</option>
-              </select>
+          <!-- Service Card 3 -->
+          <div class="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-electric-blue">
+            <div class="w-16 h-16 bg-electric-blue rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+              </svg>
             </div>
-
-            <div class="mb-8">
-              <label for="message" class="block text-sm font-semibold text-slate-700 mb-2">Message (Optionnel)</label>
-              <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-slate-300 rounded-lg resize-none outline-none focus:ring-2 focus:ring-electric-blue" placeholder="Parlez-nous de votre projet..."></textarea>
-            </div>
-
-            <button type="submit" class="w-full bg-electric-blue hover:bg-electric-blue-dark text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-              Envoyer la Demande
-            </button>
-          </form>
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">Approvisionnement et Stockage d'Énergie</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Gestion de la chaîne d'approvisionnement et installation de systèmes de stockage d'énergie (ESS).
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <footer class="bg-slate-900 text-white py-8">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
-         <div class="text-slate-400 text-sm">© 2026 EVSE Canada. Tous droits réservés.</div>
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="relative z-10 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">Pourquoi Choisir EVSE Canada</h2>
+          <div class="w-24 h-1 bg-electric-blue mx-auto mb-4"></div>
+          <p class="text-xl text-slate-200 max-w-2xl mx-auto">
+            Conçu pour les conditions canadiennes, soutenu par l'expertise canadienne
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-12">
+          <!-- Feature 1 -->
+          <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-electric-blue to-electric-blue-dark rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Experts en Financement PIZE</h3>
+            <p class="text-slate-200 leading-relaxed">
+              Nous aidons à naviguer les subventions fédérales et provinciales pour maximiser votre ROI.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-electric-blue to-electric-blue-dark rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Certifié Sceau Rouge</h3>
+            <p class="text-slate-200 leading-relaxed">
+              Installation entièrement licenciée répondant aux normes strictes du Code canadien de l'électricité (CSA).
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-electric-blue to-electric-blue-dark rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Technologie Prête pour l'Hiver</h3>
+            <p class="text-slate-200 leading-relaxed">
+              Matériel testé pour les hivers canadiens rigoureux (fonctionnement à -40°C).
+            </p>
+          </div>
+        </div>
       </div>
-    </footer>
-    <script type="module" src="/main.js"></script>
-    <script>
-  // 1. Select the elements
-  const menuBtn = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const navLinks = document.querySelectorAll('.mobile-nav-link');
+    </section>
+  </div>
 
-  // 2. Add the click event to the button
-  menuBtn.addEventListener('click', () => {
-    const isHidden = mobileMenu.classList.toggle('hidden');
-    
-    // Optional: This stops the background page from scrolling 
-    // when the menu is open so the user doesn't get lost.
-    if (!isHidden) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  });
+  <!-- Leadership Section -->
+  <section id="leadership" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">Expertise en Leadership</h2>
+        <div class="w-24 h-1 bg-electric-blue mx-auto mb-4"></div>
+        <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+          Dirigé par des vétérans de l'industrie avec une expertise éprouvée en infrastructure VÉ
+        </p>
+      </div>
 
-  // 3. Close the menu automatically when a user clicks a link
-  // (Otherwise the menu stays open even after you jump to a section)
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      document.body.style.overflow = '';
+      <div class="max-w-5xl mx-auto">
+        <div class="bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100">
+          <div class="grid md:grid-cols-2 gap-8 p-8 md:p-12">
+            <div class="flex flex-col justify-center space-y-6">
+              <div class="flex items-start">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-gradient-to-br from-electric-blue to-electric-blue-dark rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-xl font-bold text-slate-900 mb-2">Équipe de Maîtres Électriciens</h3>
+                  <p class="text-slate-600 leading-relaxed">
+                    Notre CTO dirige une équipe hautement qualifiée de maîtres électriciens certifiés Sceau Rouge, garantissant que chaque installation répond aux normes de sécurité et de qualité les plus élevées.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-gradient-to-br from-electric-blue to-electric-blue-dark rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-xl font-bold text-slate-900 mb-2">Expertise en Recharge Tesla</h3>
+                  <p class="text-slate-600 leading-relaxed">
+                    Avec plusieurs années d'expérience spécialisée dans l'installation de points de recharge pour les utilisateurs Tesla, nous comprenons les exigences uniques des solutions de recharge VÉ premium.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-gradient-to-br from-electric-blue to-electric-blue-dark rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-xl font-bold text-slate-900 mb-2">Installations de Niveau Commercial</h3>
+                  <p class="text-slate-600 leading-relaxed">
+                    Expérience approfondie avec les installations de chargeurs de niveau commercial dans diverses applications, de la recharge en milieu de travail aux stations de recharge rapide publiques.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-center">
+              <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-br from-electric-blue to-electric-blue-dark rounded-2xl transform rotate-3"></div>
+                <div class="relative bg-slate-900 rounded-2xl p-8 shadow-xl">
+                  <div class="text-center space-y-6">
+                    <div class="w-24 h-24 bg-gradient-to-br from-electric-blue to-electric-blue-dark rounded-full flex items-center justify-center mx-auto shadow-lg">
+                      <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold text-white mb-2">Excellence Certifiée</h3>
+                      <p class="text-slate-300 text-sm mb-4">Maîtres Électriciens Certifiés Sceau Rouge</p>
+                      <div class="flex flex-col space-y-2 text-left">
+                        <div class="flex items-center">
+                          <svg class="w-5 h-5 text-electric-blue mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                          </svg>
+                          <span class="text-white text-sm">Conforme aux Normes CSA</span>
+                        </div>
+                        <div class="flex items-center">
+                          <svg class="w-5 h-5 text-electric-blue mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                          </svg>
+                          <span class="text-white text-sm">Installations Approuvées par ESA</span>
+                        </div>
+                        <div class="flex items-center">
+                          <svg class="w-5 h-5 text-electric-blue mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                          </svg>
+                          <span class="text-white text-sm">Garantie de Pointe dans l'Industrie</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <p class="text-lg text-slate-700 mb-6">
+            <span class="font-bold text-electric-blue">Faites confiance aux experts.</span> Notre équipe de direction apporte des décennies d'expérience combinée en génie électrique et en déploiement d'infrastructure VÉ.
+          </p>
+          <a href="#contact" class="inline-block bg-electric-blue hover:bg-electric-blue-dark text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Parler avec Notre Équipe
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">Notre Processus</h2>
+        <div class="w-24 h-1 bg-electric-blue mx-auto mb-4"></div>
+        <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+          De la consultation initiale à l'activation finale, nous gérons chaque étape
+        </p>
+      </div>
+
+      <div class="relative">
+        <!-- Desktop Timeline -->
+        <div class="hidden md:block">
+          <div class="flex justify-between items-start relative">
+            <div class="absolute top-12 left-0 right-0 h-1 bg-slate-200 z-0"></div>
+            <div class="absolute top-12 left-0 h-1 bg-electric-blue z-0 transition-all duration-1000" style="width: 100%;"></div>
+
+            <!-- Step 1 -->
+            <div class="relative z-10 flex flex-col items-center text-center w-1/5">
+              <div class="w-24 h-24 bg-electric-blue rounded-full flex items-center justify-center text-white font-bold text-2xl mb-4 shadow-lg">1</div>
+              <h4 class="font-bold text-lg text-slate-900 mb-2">Consultation</h4>
+              <p class="text-sm text-slate-600">Réunion initiale pour comprendre vos besoins</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="relative z-10 flex flex-col items-center text-center w-1/5">
+              <div class="w-24 h-24 bg-electric-blue rounded-full flex items-center justify-center text-white font-bold text-2xl mb-4 shadow-lg">2</div>
+              <h4 class="font-bold text-lg text-slate-900 mb-2">Évaluation du Site</h4>
+              <p class="text-sm text-slate-600">Évaluation détaillée de votre emplacement</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative z-10 flex flex-col items-center text-center w-1/5">
+              <div class="w-24 h-24 bg-electric-blue rounded-full flex items-center justify-center text-white font-bold text-2xl mb-4 shadow-lg">3</div>
+              <h4 class="font-bold text-lg text-slate-900 mb-2">Installation</h4>
+              <p class="text-sm text-slate-600">Configuration professionnelle de l'équipement</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="relative z-10 flex flex-col items-center text-center w-1/5">
+              <div class="w-24 h-24 bg-electric-blue rounded-full flex items-center justify-center text-white font-bold text-2xl mb-4 shadow-lg">4</div>
+              <h4 class="font-bold text-lg text-slate-900 mb-2">Inspection ESA</h4>
+              <p class="text-sm text-slate-600">Vérification de la conformité au code</p>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="relative z-10 flex flex-col items-center text-center w-1/5">
+              <div class="w-24 h-24 bg-electric-blue rounded-full flex items-center justify-center text-white font-bold text-2xl mb-4 shadow-lg">5</div>
+              <h4 class="font-bold text-lg text-slate-900 mb-2">Activation</h4>
+              <p class="text-sm text-slate-600">Votre station de recharge devient opérationnelle</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Timeline -->
+        <div class="md:hidden space-y-8">
+          <div class="flex items-start">
+            <div class="w-16 h-16 bg-electric-blue rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 flex-shrink-0 shadow-lg">1</div>
+            <div>
+              <h4 class="font-bold text-lg text-slate-900 mb-1">Consultation</h4>
+              <p class="text-sm text-slate-600">Réunion initiale pour comprendre vos besoins</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-16 h-16 bg-electric-blue rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 flex-shrink-0 shadow-lg">2</div>
+            <div>
+              <h4 class="font-bold text-lg text-slate-900 mb-1">Évaluation du Site</h4>
+              <p class="text-sm text-slate-600">Évaluation détaillée de votre emplacement</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-16 h-16 bg-electric-blue rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 flex-shrink-0 shadow-lg">3</div>
+            <div>
+              <h4 class="font-bold text-lg text-slate-900 mb-1">Installation</h4>
+              <p class="text-sm text-slate-600">Configuration professionnelle de l'équipement</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-16 h-16 bg-electric-blue rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 flex-shrink-0 shadow-lg">4</div>
+            <div>
+              <h4 class="font-bold text-lg text-slate-900 mb-1">Inspection ESA</h4>
+              <p class="text-sm text-slate-600">Vérification de la conformité au code</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-16 h-16 bg-electric-blue rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 flex-shrink-0 shadow-lg">5</div>
+            <div>
+              <h4 class="font-bold text-lg text-slate-900 mb-1">Activation</h4>
+              <p class="text-sm text-slate-600">Votre station de recharge devient opérationnelle</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">Commencez Aujourd'hui</h2>
+        <div class="w-24 h-1 bg-electric-blue mx-auto mb-4"></div>
+        <p class="text-xl text-slate-600">
+          Prêt à alimenter votre avenir électrique? Contactez-nous pour une consultation gratuite.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+        <form id="contact-form" action="https://formsubmit.co/okanoho@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nouveau message (FR) - EVSE Canada">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_next" value="https://okanoho.github.io/EVSE/thankyou-fr.html">
+
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">Nom Complet *</label>
+              <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-electric-blue focus:border-transparent outline-none transition-all" placeholder="Jean Dupont" />
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Adresse Courriel *</label>
+              <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-electric-blue focus:border-transparent outline-none transition-all" placeholder="jean@exemple.com" />
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <label for="company" class="block text-sm font-semibold text-slate-700 mb-2">Entreprise (Optionnel)</label>
+            <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-electric-blue focus:border-transparent outline-none transition-all" placeholder="Nom de votre entreprise" />
+          </div>
+
+          <div class="mb-6">
+            <label for="project-type" class="block text-sm font-semibold text-slate-700 mb-2">Type de Projet *</label>
+            <select id="project-type" name="project-type" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-electric-blue focus:border-transparent outline-none transition-all bg-white">
+              <option value="">Sélectionnez un type de projet</option>
+              <option value="home">Résidentiel</option>
+              <option value="business">Commercial</option>
+              <option value="supply-chain">Chaîne d'approvisionnement</option>
+              <option value="energy-storage">Stockage d'énergie</option>
+            </select>
+          </div>
+
+          <div class="mb-8">
+            <label for="message" class="block text-sm font-semibold text-slate-700 mb-2">Message (Optionnel)</label>
+            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-electric-blue focus:border-transparent outline-none transition-all resize-none" placeholder="Parlez-nous de votre projet..."></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-electric-blue hover:bg-electric-blue-dark text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Envoyer la Demande
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <img src="public/image.png" alt="EVSE Canada" class="h-10 w-auto" />
+        </div>
+        <div class="text-slate-400 text-sm">
+          © 2026 EVSE Canada. Tous droits réservés.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+    menuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      
+      if (!isHidden) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
     });
-  });
-</script>
-  </body>
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+</body>
 </html>
