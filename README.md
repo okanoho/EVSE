@@ -1,2 +1,2 @@
-# EVSE
-EVSE Canada - Electric Vehicle Charging Solutions
+# Apex Foundation
+Apex Foundation - Electric Vehicle Charging Solutions
