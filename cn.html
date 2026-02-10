@@ -507,26 +507,57 @@
   </footer>
 
   <script>
-    const menuBtn = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelectorAll('.mobile-nav-link');
+  // Mobile Menu Script (existing code)
+  const menuBtn = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks = document.querySelectorAll('.mobile-nav-link');
 
-    menuBtn.addEventListener('click', () => {
-      const isHidden = mobileMenu.classList.toggle('hidden');
+  menuBtn.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.toggle('hidden');
+    
+    if (!isHidden) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ADD THESE NEW FUNCTIONS (missing from fr.html and cn.html):
+  
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      if (this.getAttribute('href') === '#') return;
       
-      if (!isHidden) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = '';
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
       }
     });
+  });
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        document.body.style.overflow = '';
-      });
-    });
-  </script>
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 100) {
+      navbar.classList.add('shadow-lg', 'bg-white/95', 'backdrop-blur-sm');
+    } else {
+      navbar.classList.remove('shadow-lg', 'bg-white/95', 'backdrop-blur-sm');
+    }
+  });
+</script>
 </body>
 </html>
