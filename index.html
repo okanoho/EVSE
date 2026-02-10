@@ -525,5 +525,108 @@
       });
     });
   </script>
+    <script>
+    // Mobile Menu Script (keep existing)
+    const menuBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+    menuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      
+      if (!isHidden) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // FORM SUBMISSION HANDLING - ADD THIS SECTION
+    document.addEventListener('DOMContentLoaded', function() {
+      const contactForm = document.getElementById('contact-form');
+      const submitBtn = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+      
+      if (contactForm && submitBtn) {
+        // Create a message div if it doesn't exist
+        let messageDiv = document.getElementById('form-message');
+        if (!messageDiv) {
+          messageDiv = document.createElement('div');
+          messageDiv.id = 'form-message';
+          messageDiv.className = 'hidden mt-6 p-4 rounded-lg';
+          contactForm.appendChild(messageDiv);
+        }
+        
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault(); // Prevent default form submission
+          
+          // Show loading state
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = 'Sending...';
+          submitBtn.disabled = true;
+          
+          // Hide any previous messages
+          messageDiv.classList.add('hidden');
+          
+          // Create FormData from the form
+          const formData = new FormData(contactForm);
+          
+          // Submit the form data
+          fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          })
+          .then(response => {
+            if (response.ok) {
+              // Show success message
+              messageDiv.textContent = 'Message sent successfully! Redirecting...';
+              messageDiv.className = 'mt-6 p-4 rounded-lg bg-green-100 text-green-700';
+              messageDiv.classList.remove('hidden');
+              
+              // Get the redirect URL from the form
+              const nextInput = contactForm.querySelector('input[name="_next"]');
+              const redirectUrl = nextInput ? nextInput.value : 'thankyou.html';
+              
+              // Redirect after 2 seconds
+              setTimeout(() => {
+                window.location.href = redirectUrl;
+              }, 2000);
+            } else {
+              throw new Error('Form submission failed');
+            }
+          })
+          .catch(error => {
+            console.error('Form submission error:', error);
+            
+            // Show error message
+            messageDiv.textContent = 'Error sending message. Please try again or contact us directly.';
+            messageDiv.className = 'mt-6 p-4 rounded-lg bg-red-100 text-red-700';
+            messageDiv.classList.remove('hidden');
+            
+            // Reset button
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            
+            // Fallback: submit the form the old-fashioned way
+            setTimeout(() => {
+              contactForm.removeEventListener('submit', arguments.callee);
+              contactForm.submit();
+            }, 3000);
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
 </body>
 </html>
